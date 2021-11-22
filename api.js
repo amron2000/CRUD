@@ -18,7 +18,7 @@ useUnifiedTopology: true }, function(error) {
   
 module.exports = router;
 
-router.get('/save', function(req, res) {
+router.get('/add', function(req, res) {
     var newStudent = new StudentModel({StudentId:101, 
         Name:"Sam", Roll:1, Birthday:2001-09-08});
 
@@ -32,7 +32,7 @@ router.get('/save', function(req, res) {
     });
 });
 
-router.post('/save', function(req, res) {
+router.post('/add', function(req, res) {
     var newStudent = new StudentModel();
        newStudent.StudentId = req.body.StudentId;
        newStudent.Name = req.body.Name;
@@ -49,7 +49,7 @@ router.post('/save', function(req, res) {
        });
     });
 
-    router.get('/findall', function(req, res) {
+    router.get('/getall', function(req, res) {
         StudentModel.find(function(err, data) {
             if(err){
                 console.log(err);
@@ -60,7 +60,7 @@ router.post('/save', function(req, res) {
         });  
      });
 
-     router.get('/findfirst', function(req, res) {
+     router.get('/getfirst', function(req, res) {
         StudentModel.findOne({StudentId:{$gt:185}}, 
         function(err, data) {
             if(err){
